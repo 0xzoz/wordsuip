@@ -84,12 +84,12 @@ const sidebar = {
 
 const theme = createTheme();
 
-export default function Blog() {
+export default function FrontPage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="Wordsuip Weekly" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
