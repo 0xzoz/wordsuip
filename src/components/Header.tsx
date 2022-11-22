@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link as RedirectLink } from 'react-router-dom';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -34,9 +35,11 @@ export default function Header(props: HeaderProps) {
         <IconButton>
           <SearchIcon />
         </IconButton>
+        <RedirectLink to="/acc">
         <Button variant="outlined" size="small">
           Connect
         </Button>
+        </RedirectLink>
       </Toolbar>
       <Toolbar
         component="nav"
