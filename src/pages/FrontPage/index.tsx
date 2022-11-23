@@ -8,12 +8,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Header from '../../components/Header';
-import MainFeaturedPost from '../../components/MainFeaturedPost';
-import FeaturedPost from '../../components/FeaturedPost';
-import Main from '../../components/Main';
-import Sidebar from '../../components/Sidebar';
-import Footer from '../../components/Footer';
+import Header from './header';
+import MainFeaturedPost from './mainFeaturedPost';
+import FeaturedPost from './featuredPost';
+import Main from './main';
+import Sidebar from './sidebar';
+import Footer from './footer';
 import post1 from '../../data/blog-post.1.md';
 
 

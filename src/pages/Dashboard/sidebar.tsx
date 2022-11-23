@@ -4,7 +4,7 @@ import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/ma
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Selector as SelectorIcon } from '../../assets/icons/selector';
 
-import { Logo }  from './logo';
+import   Logo    from '../../assets/wordsuip_black.svg';
 import { NavItem } from './navItem';
 
 const items = [
@@ -46,21 +46,19 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
         }}
       >
         <div>
-          <Box sx={{ p: 3 }}>
-              <a>
-                <Logo
-                  sx={{
-                    height: 42,
-                    width: 42
-                  }}
-                />
-              </a>
+          <Box sx={{ 
+                  p: 3,
+                  width: 220,
+                  '& img': {
+                    width: '100%'
+                  } }}>
+            <img  src={Logo} alt='word suip logo'></img>
           </Box>
           <Box sx={{ px: 2 }}>
             <Box
               sx={{
                 alignItems: 'center',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                backgroundColor: 'black',
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -71,10 +69,10 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
             >
               <div>
                 <Typography
-                  color="inherit"
+                  color="secondary"
                   variant="subtitle1"
                 >
-                  Acme Inc
+                  zoz.sui
                 </Typography>
                 <Typography
                   color="neutral.400"
@@ -101,7 +99,7 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
             my: 3
           }}
         />
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, backgroundColor: 'black' }}>
           {items.map((item) => (
             <NavItem
               key={item.title}
@@ -141,10 +139,7 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
               }
             }}
           >
-            <img
-              alt="Go to pro"
-              src="/static/images/sidebar_pro.png"
-            />
+
           </Box>
             <Button
               color="secondary"
@@ -154,7 +149,7 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
               sx={{ mt: 2 }}
               variant="contained"
             >
-              Pro Live Preview
+              Github
             </Button>
         </Box>
       </Box>

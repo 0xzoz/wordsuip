@@ -1,6 +1,7 @@
 
 import React from 'react';
 import suixceramiclogo from '../../assets/collaboration.png';
+import Logo from '../../assets/wordsuip_logo.svg';
 import '../../App.css';
 import { Link } from "react-router-dom";
 
@@ -9,7 +10,7 @@ function SplashPage() {
     <Link to='home'>
     <div className="App">
       <header className="App-header">    
-        <h1> Wordsuip Weekly</h1>
+        <img src={Logo} className="word suip logo" alt="logo" /> 
         <img src={suixceramiclogo} className="sui-logo" alt="logo" />
       </header>
     </div>
