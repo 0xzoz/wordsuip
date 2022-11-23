@@ -11,8 +11,13 @@ const items = [
   { page: 'account',
     href: '/acc',
     icon: '',
-    title: 'Dashboard'
-  }
+    title: 'Account'
+  },
+  { page: 'posts',
+    href: '/acc',
+    icon: '',
+    title: 'Posts'
+}
 ];
 
 export const DashboardSidebar = (props: { open: any; onClose: any; }) => {

@@ -5,6 +5,8 @@ import { DashboardNavbar } from './navbar';
 import { DashboardSidebar } from './sidebar';
 import { Box } from '@mui/material';
 import Account from '../../components/account/account';
+import Posts from '../../components/posts/posts';
+
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
   flex: '1 1 auto',
@@ -30,7 +32,8 @@ export const Dashboard = (props: any) => {
             width: '100%'
           }}
         >
-          {page === 'account' ? <Account /> : <div></div>}
+          {page === 'account' ? <Account /> :
+           page === 'posts' ? <Posts /> : <div></div>}
 
         </Box>
       </DashboardLayoutRoot>

@@ -1666,10 +1666,10 @@
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.10.15.tgz#490f3dea5327c892f063496a0219c48301da0fa0"
   integrity sha512-xFcS0LpdF0Q1qJrrNsYUv9PU+ovvhCEPTOMw2jcpEFtl3CA87dLpvztORR5oE2UBFjWF7qLQLOwboQU1+xC7Cw==
 
-"@mui/icons-material@^5.10.14":
-  version "5.10.14"
-  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.10.14.tgz#6b1e40cc95f2a27e6547980f6a1636f54ac05617"
-  integrity sha512-qtH60slQa+7MZRn6kyui8rKuoGDglPqaHX+pzBKNvd8JCOlrnfY5DmGGDdToTXyXl8xJ8nhANZbrbpg7UVKq/Q==
+"@mui/icons-material@^5.10.15":
+  version "5.10.15"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.10.15.tgz#c93f1ba8d2b55fe0a16f559a568304df172cbbcb"
+  integrity sha512-fXkz7CtYTt4AH4YYT67VFhM/A3YCUqZGGLp/3BlzRPQRNEfFKknw3MgG1S5UYrY5weti8jxMx3mwwfhVP8OMhQ==
   dependencies:
     "@babel/runtime" "^7.20.1"
 
@@ -2390,6 +2390,11 @@
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
+
+"@types/uuid@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
 
 "@types/ws@^8.5.1":
   version "8.5.3"
@@ -10615,6 +10620,11 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
+uuid@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.0.tgz#592f550650024a38ceb0c562f2f6aa435761efb5"
+  integrity sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==
 
 v8-to-istanbul@^8.1.0:
   version "8.1.1"

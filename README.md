@@ -7,6 +7,8 @@ Intended to be a tutorial on how to build with SUI and Ceramic
 Landing page look: logo and underneath simple sui(sui colors) x ceramic(ceramic colors)
 ![](https://i.imgur.com/92OcLuD.png)
 
+**Color Pallete**
+https://www.schemecolor.com/homer-the-simpsons-cartoon-colors.php
 
 **Front Page Look:** neutral grey, black text(think simpsons style newspaper) 
 ![](https://i.imgur.com/nLQXX55.png)

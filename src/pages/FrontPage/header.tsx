@@ -35,7 +35,7 @@ export default function Header(props: HeaderProps) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <RedirectLink to="/acc">
+        <RedirectLink to="/acc" state={{ page: 'account' }} >
         <Button variant="outlined" size="small">
           Connect
         </Button>
