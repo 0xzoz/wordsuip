@@ -8,8 +8,8 @@ import   Logo    from '../../assets/wordsuip_black.svg';
 import { NavItem } from './navItem';
 
 const items = [
-  {
-    href: '/',
+  { page: 'account',
+    href: '/acc',
     icon: '',
     title: 'Dashboard'
   }
@@ -106,6 +106,7 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
               icon={item.icon}
               href={item.href}
               title={item.title}
+              page={item.page}
             />
           ))}
         </Box>

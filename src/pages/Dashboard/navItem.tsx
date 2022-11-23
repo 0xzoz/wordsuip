@@ -1,9 +1,9 @@
-
+import { Link as RedirectLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Box, Button, ListItem } from '@mui/material';
 
 export const NavItem = (props: { [x: string]: any; href: any; icon: any; title: any; }) => {
-  const { href, icon, title, ...others } = props;
+  const { href, icon, title, page, ...others } = props;
   const active = true
 
   return (
@@ -17,6 +17,8 @@ export const NavItem = (props: { [x: string]: any; href: any; icon: any; title: 
       }}
       {...others}
     >
+
+      <RedirectLink to={href} state={{ page: page }}>
         <Button
           component="a"
           startIcon={icon}
@@ -43,6 +45,7 @@ export const NavItem = (props: { [x: string]: any; href: any; icon: any; title: 
             {title}
           </Box>
         </Button>
+      </RedirectLink>
     </ListItem>
   );
 };
