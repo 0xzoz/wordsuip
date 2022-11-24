@@ -6,6 +6,7 @@ import { DashboardSidebar } from './sidebar';
 import { Box } from '@mui/material';
 import Account from '../../components/account/account';
 import Posts from '../../components/posts/posts';
+import Create from '../../components/create/create';
 
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -33,7 +34,8 @@ export const Dashboard = (props: any) => {
           }}
         >
           {page === 'account' ? <Account /> :
-           page === 'posts' ? <Posts /> : <div></div>}
+           page === 'posts' ? <Posts /> : 
+           page === 'create' ? <Create /> : <div></div>}
 
         </Box>
       </DashboardLayoutRoot>

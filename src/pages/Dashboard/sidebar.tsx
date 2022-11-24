@@ -17,7 +17,13 @@ const items = [
     href: '/acc',
     icon: '',
     title: 'Posts'
-}
+  },
+  { page: 'create',
+  href: '/acc',
+  icon: '',
+  title: 'Create'
+ },
+
 ];
 
 export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
@@ -155,7 +161,7 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
               sx={{ mt: 2 }}
               variant="contained"
             >
-              Github
+              Docs
             </Button>
         </Box>
       </Box>
