@@ -34,7 +34,8 @@ import {
             Save Draft
           </Button>
           <Button
-            color="primary"
+            color="secondary"
+            component="a"
             variant="contained"
           >
             Publish

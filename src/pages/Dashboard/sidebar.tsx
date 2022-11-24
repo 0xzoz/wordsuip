@@ -107,7 +107,7 @@ export const DashboardSidebar = (props: { open: any; onClose: any; }) => {
         <Divider
           sx={{
             borderColor: '#2D3748',
-            my: 3
+            my: 1
           }}
         />
         <Box sx={{ flexGrow: 1, backgroundColor: 'black' }}>

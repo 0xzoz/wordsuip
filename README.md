@@ -28,6 +28,10 @@ References:
 - Lit protocol encrypt
 
 
+## Ceramic Notes
+[Working with images](https://developers.ceramic.network/reference/self-id/modules/image_utils/)
+
+
 ## User Story
 - A user needs to be able to connect to SUI wallet
 - A user needs to be able to be identified by that wallet
@@ -51,7 +55,7 @@ References:
 - Sui side
     - Wrapper of encrypted post and sui[currency]
     - Mechnism - likes has a certain cost(small) downvotes have an even smaller cost but deduct from the likes quadratically(prob really flawed - vitalik has surely though deep about this). Protocol only gets money on downvotes. Fees go to either ReFi(spirals) or 0L or combination of the two.
-    - 
+    
 - Algorithm 
 
 
