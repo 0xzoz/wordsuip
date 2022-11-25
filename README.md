@@ -32,6 +32,9 @@ References:
 [Working with images](https://developers.ceramic.network/reference/self-id/modules/image_utils/)
 
 
+## Sui Notes
+[Wallet Library](https://kit.suiet.app/docs/QuickStart)
+
 ## User Story
 - A user needs to be able to connect to SUI wallet
 - A user needs to be able to be identified by that wallet
