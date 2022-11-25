@@ -1,4 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import { ConnectButton, useWallet } from '@suiet/wallet-kit';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { AppBar, Avatar, Badge, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
@@ -15,7 +17,16 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
 
 export const DashboardNavbar = (props: { [x: string]: any; onSidebarOpen: any; }) => {
   const { onSidebarOpen, ...other } = props;
-  const settingsRef = useRef(null);
+  const settingsRef = useRef(null); 
+  const wallet = useWallet()
+
+
+  useEffect(() => {
+    if (!wallet.connected) return;
+    console.log('connected wallet name: ', wallet.name)
+    console.log('account address: ', wallet.account?.address)
+    console.log('account publicKey: ', wallet.account?.publicKey)
+  }, [wallet.connected])
 
   return (
     <>
@@ -70,6 +81,10 @@ export const DashboardNavbar = (props: { [x: string]: any; onSidebarOpen: any; }
               </Badge>
             </IconButton>
           </Tooltip>
+          {wallet.connected ? 
+          <ConnectButton /> :
+          <Navigate to="/home"  />
+          } 
           <Avatar
             ref={settingsRef}
             sx={{

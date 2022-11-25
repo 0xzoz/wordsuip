@@ -6,6 +6,17 @@
   text-align: center;
 }
 
+:root {
+  --wkit-button-width: 200px; 
+  --wkit-border-radius: 5px;
+  --wkit-line-height-small:10px;
+  --wkit-line-height-medium:12px;
+  --wkit-line-height-large:10px;
+  --wkit-font-size-small:10px;
+  --wkit-font-size-medium:12px;
+  --wkit-font-size-large:14px;
+}
+
 .ceramic-logo {
   width: 100px;
   pointer-events: none;

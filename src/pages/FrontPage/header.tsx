@@ -1,11 +1,12 @@
-import * as React from 'react';
-import { Link as RedirectLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { ConnectButton, useWallet } from '@suiet/wallet-kit';
 
 interface HeaderProps {
   sections: ReadonlyArray<{
@@ -17,6 +18,14 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const { sections, title } = props;
+  const wallet = useWallet()
+
+  useEffect(() => {
+    if (!wallet.connected) return;
+    console.log('connected wallet name: ', wallet.name)
+    console.log('account address: ', wallet.account?.address)
+    console.log('account publicKey: ', wallet.account?.publicKey)
+  }, [wallet.connected])
 
   return (
     <React.Fragment>
@@ -35,11 +44,10 @@ export default function Header(props: HeaderProps) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <RedirectLink to="/acc" state={{ page: 'account' }} >
-        <Button variant="outlined" size="small">
-          Connect
-        </Button>
-        </RedirectLink>
+        {wallet.connected ? 
+          <Navigate to="/acc" state={{ page: 'account' }} /> : 
+        <ConnectButton />
+        }
       </Toolbar>
       <Toolbar
         component="nav"
