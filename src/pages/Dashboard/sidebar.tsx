@@ -4,7 +4,7 @@ import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/ma
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Selector as SelectorIcon } from '../../assets/icons/selector';
 
-import   Logo    from '../../assets/wordsuip_black.svg';
+import   Logo    from '../../assets/wordsuip-w-logo.png';
 import { NavItem } from './navItem';
 
 const items = [
