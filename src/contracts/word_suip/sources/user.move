@@ -5,7 +5,7 @@
 module word_suip::user {
     use sui::tx_context::{Self, TxContext};
     use sui::object::{Self, UID, ID};
-    use sui::url::Url;
+    use sui::url::{Self, Url};
     use sui::transfer;
     use sui::event::emit;
 
@@ -86,11 +86,12 @@ module word_suip::user {
         _: &UserManagerCap, 
         reg: &mut UserRegistry,
         ctx: &mut TxContext,
-        profile_pic: Url,
     ) {
 
         let id = object::new(ctx);
         let sender = tx_context::sender(ctx);
+        let dummy_url = vector::empty();
+        let profile_pic = url::new_unsafe_from_bytes(dummy_url);
 
         emit(UserCreated {
             id: object::uid_to_inner(&id),
@@ -133,7 +134,156 @@ module word_suip::user {
             deleted_date: tx_context::epoch(ctx),
             deleted_by: sender,
         });
+
         object::delete(id);
+    }
+
+
+        // ======= View functions =======
+
+    /// Returns the number of users in the registry.    
+    
+    public fun get_users_count(reg: &UserRegistry): u64 {
+        reg.users
+    }
+
+
+
+        // ======== Test =========
+
+    #[test_only]
+    public fun test_module_init(ctx: &mut TxContext) {
+        use sui::test_scenario;
+        use std::debug;
+
+        let id = object::new(ctx);
+
+        emit(RegistryCreated { id: object::uid_to_inner(&id) });
+        
+        transfer::transfer(UserManagerCap { id: object::new(ctx) }, tx_context::sender(ctx));
+        transfer::share_object(UserRegistry {
+            id,
+            user_ids: vector::empty(),
+            users: 0,
+
+        });
+
+
+
+        // create test address representing game admin
+        let admin = @0xBABE;
+        debug::print(&admin);
+
+        // first transaction to emulate module initialization
+        let scenario_val = test_scenario::begin(admin);
+        let scenario = &mut scenario_val;
+        // second transaction to check if the UserRegistry has been created
+        // and has initial value of zero users created
+        test_scenario::next_tx(scenario, admin);
+        {
+            // extract the UserRegistry object
+            let reg = test_scenario::take_from_sender<UserRegistry>(scenario);
+            // verify number of created swords
+            assert!(get_users_count(&reg) == 0, 1);
+            // return the Forge object to the object pool
+            test_scenario::return_to_sender(scenario, reg);
+        };
+        test_scenario::end(scenario_val);
+
+        
+    }
+
+
+    #[test_only]
+    public fun test_create_user(ctx: &mut TxContext) {
+        use sui::test_scenario;
+        use std::debug;
+
+        let id = object::new(ctx);
+
+        emit(RegistryCreated { id: object::uid_to_inner(&id) });
+        
+        transfer::transfer(UserManagerCap { id: object::new(ctx) }, tx_context::sender(ctx));
+        transfer::share_object(UserRegistry {
+            id,
+            user_ids: vector::empty(),
+            users: 0,
+
+        });
+
+        // create test address representing game admin
+        let admin = @0xBABE;
+        debug::print(&admin);
+
+        // first transaction to emulate module initialization
+        let scenario_val = test_scenario::begin(admin);
+        let scenario = &mut scenario_val;
+        // second transaction to check if the UserRegistry has been created
+        // and has initial value of zero users created
+        test_scenario::next_tx(scenario, admin);
+        {
+            // extract the UserRegistry object
+            let reg = test_scenario::take_from_sender<UserRegistry>(scenario);
+            let cap = test_scenario::take_from_sender<UserManagerCap>(scenario);
+
+            // create a new user
+            create_user(&cap, &mut reg, ctx);
+            test_scenario::return_to_sender(scenario, cap);
+            test_scenario::return_to_sender(scenario, reg);
+        };
+        test_scenario::end(scenario_val);
+    }
+
+
+    #[test_only]
+    public fun test_delete_user(ctx: &mut TxContext) {
+        use sui::test_scenario;
+        use std::debug;
+
+        let id = object::new(ctx);
+
+        emit(RegistryCreated { id: object::uid_to_inner(&id) });
+        
+        transfer::transfer(UserManagerCap { id: object::new(ctx) }, tx_context::sender(ctx));
+        transfer::share_object(UserRegistry {
+            id,
+            user_ids: vector::empty(),
+            users: 0,
+
+        });
+
+        // create test address representing game admin
+        let admin = @0xBABE;
+        debug::print(&admin);
+
+        // first transaction to emulate module initialization
+        let scenario_val = test_scenario::begin(admin);
+        let scenario = &mut scenario_val;
+        // second transaction to check if the UserRegistry has been created
+        // and has initial value of zero users created
+        test_scenario::next_tx(scenario, admin);
+        {
+            // extract the UserRegistry object
+            let reg = test_scenario::take_from_sender<UserRegistry>(scenario);
+            let cap = test_scenario::take_from_sender<UserManagerCap>(scenario);
+
+            // create a new user
+            create_user(&cap, &mut reg, ctx);
+            assert!(get_users_count(&reg) == 1, 1);
+            test_scenario::return_to_sender(scenario, reg);
+            test_scenario::return_to_sender(scenario, cap);
+        };
+
+        test_scenario::next_tx(scenario, admin);
+        {
+            let reg = test_scenario::take_from_sender<UserRegistry>(scenario);
+            let user = test_scenario::take_from_sender<User>(scenario);
+            delete_user( user, ctx);
+            assert!(get_users_count(&reg) == 0, 1);
+            test_scenario::return_to_sender(scenario, reg);
+        };
+
+        test_scenario::end(scenario_val);
     }
 
 }
