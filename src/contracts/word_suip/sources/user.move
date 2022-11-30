@@ -83,7 +83,6 @@ module word_suip::user {
     /// Emits `UserCreated` event.
     
     public entry fun create_user(
-        _: &UserManagerCap, 
         reg: &mut UserRegistry,
         ctx: &mut TxContext,
     ) {
@@ -119,7 +118,7 @@ module word_suip::user {
     /// Deletes a user. Can be called only once per address.
     /// Emits `UserDeleted` event.
     
-    public fun delete_user(
+    public entry fun delete_user(
         user: User,
         ctx: &mut TxContext,
     ) {

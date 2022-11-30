@@ -5,7 +5,7 @@ import { AccountProfileDetails } from '../../components/account/account-profile-
 import useSui from '../../hooks/useSui';
 
 const Account = () => {
-  let { createUser, isUser } = useSui();
+  let { createUser, deleteUser, isUser } = useSui();
   const [user,setUser] = useState(false);
   
   useEffect(() => {
@@ -14,6 +14,11 @@ const Account = () => {
     }
     fetchData();
   }, [isUser])
+
+  const deleteAccount = async () => {
+    await deleteUser();
+    setUser(await isUser());
+  }
   
   
   return(
@@ -52,6 +57,14 @@ const Account = () => {
             xs={12}
           >
             <AccountProfileDetails />
+            <Button
+            color="error"
+            variant="contained"
+            sx={{ m: 1 }}
+            onClick={deleteAccount}
+          >
+            Delete Account
+          </Button>
           </Grid>
         </Grid>
       </Container>
