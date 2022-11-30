@@ -82,7 +82,7 @@ module word_suip::user {
     /// Creates a new user. Can be called only once per address.
     /// Emits `UserCreated` event.
     
-    public fun create_user(
+    public entry fun create_user(
         _: &UserManagerCap, 
         reg: &mut UserRegistry,
         ctx: &mut TxContext,

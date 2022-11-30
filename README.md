@@ -34,7 +34,8 @@ References:
 
 ## Sui Notes
 [Wallet Library](https://kit.suiet.app/docs/QuickStart)
-
+[Sui Move cheatsheet docs](https://examples.sui.io/)
+[Sui Dev Env Setup Cheatsheet](https://hackmd.io/QPHqN6oEShyujS4P2xBfzg?both)
 ## User Story
 - A user needs to be able to connect to SUI wallet
 - A user needs to be able to be identified by that wallet
